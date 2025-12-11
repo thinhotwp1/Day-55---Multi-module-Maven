@@ -20,6 +20,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+<!--    Đây là khái niệm quan trọng nhất cần phân biệt:-->
+<!--    <dependencies> (Trong Parent):-->
+<!--    Nếu bạn khai báo thư viện ở đây, TẤT CẢ module con sẽ tự động bị ép phải tải thư viện về, dù chúng có cần hay không.-->
+<!--    Dùng cho: Các thư viện cốt lõi như lombok, slf4j.-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+<!--    <dependencyManagement> (Trong Parent/BOM):-->
+<!--    Khai báo ở đây CHƯA tải thư viện về. Nó chỉ định nghĩa phiên bản.-->
+<!--    Module con muốn dùng thì phải khai báo lại trong <dependencies> của chính nó (nhưng không cần ghi version).-->
+<!--    Dùng cho: Hầu hết các thư viện (Spring Security, Database drivers, Utils...).-->
     <dependencyManagement>
         <dependencies>
             <dependency>
