@@ -5,8 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class User {
+public class Item {
     private String name;
-    private int age;
-    private String role;
 }
